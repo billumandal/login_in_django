@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Login Form Using jQuery - Demo Preview</title>
+        <meta name="robots" content="noindex, nofollow">
+        <!-- Include CSS File Here -->
+
+        <!-- Include CSS File Here -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+        <script type="text/javascript">
+
+         $(document).ready(function()
+             {
+                 $("#login").click(function()
+                     {
+                       // Checking for blank fields.
+                         if( $("#u_name").val() =='' || $("#password").val() ==''){
+                             $('input[type="text"],input[type="password"]').css("border","2px solid red");
+                              $("#error").html("Please fill all the fields!");
+                         }  else {
+                             $.ajax({
+                                 type: "POST",
+                                 url:"{% url 'login_url' %}",
+                                 data: $('#Login_form').serialize(),
+                                 success: function(data)
+                                 {
+                                     window.location = 'product';
+                                 },
+                                 error: function(data){
+                                     $("#error").html("Please Check Username and Password");
+                                 }
+                             });
+                         }
+                     });
+             });
+        </script>
+    </head>
+    <body>
+        <center>
+            <div class="container">
+                <div class="main">
+                    <form class="form" id="Login_form" method="post" action="">{% csrf_token %}
+                        <h2>Create Login Form Using jQuery</h2>
+                        <label>Username :</label>
+                        <input type="text" name="u_name" id="u_name"><br><br>
+                        <label>Password :</label>
+                        <input type="password" name="password" id="password"><br><br>
+                        <input type="button" name="login" id="login" value="Login">
+                    </form>
+                    <p id="error"></p>
+                </div>
+            </div>
+        </center>
+    </body>
+</html>
