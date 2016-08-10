@@ -20,13 +20,13 @@
                      // Checking for blank fields.
                      if( $("#username").val() == '' || $("#password").val()=='' || $("#email").val()==''){
                          $('input[id="username"],input[id="email"],input[id="password"],input[id="confirm_password"]').css("border","2px solid red");
-                         $("#error1").html("1. Please fill all the fields!");
+                         $("#error").html("1. Please fill all the fields!");
                      } else if (checkmail.test($("#confirm_password").val())){
-                         $("#error2").html("2. Please enter a correct email.");
+                         $("#error").html("2. Please enter a correct email.");
                      } else if($("#password").val().length < 5){
-                         $("#error3").html("3. Password length should be more than 4");
+                         $("#error").html("3. Password length should be more than 4");
                      } else if( $("#confirm_password").val()!=$("#password").val()){
-                         $("#error4").html("4. Passwords don't match. Try again!")
+                         $("#error").html("4. Passwords don't match. Try again!")
                      } else {
                          $.ajax({
                              type: "POST",
@@ -37,7 +37,7 @@
                                  window.location = '';
                              },
                              error: function(data){
-                                 $("#error5").html("5. Username already exists!");
+                                 $("#error").html("5. Username already exists!");
                              }
                          });
                      }
