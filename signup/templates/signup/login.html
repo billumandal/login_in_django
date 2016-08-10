@@ -21,7 +21,7 @@
                      if( $("#username").val() == '' || $("#password").val()=='' || $("#email").val()==''){
                          $('input[id="username"],input[id="email"],input[id="password"],input[id="confirm_password"]').css("border","2px solid red");
                          $("#error").html("1. Please fill all the fields!");
-                     } else if (checkmail.test($("#confirm_password").val())){
+                     } else if (checkmail.test($("#email").val())){
                          $("#error").html("2. Please enter a correct email.");
                      } else if($("#password").val().length < 5){
                          $("#error").html("3. Password length should be more than 4");
