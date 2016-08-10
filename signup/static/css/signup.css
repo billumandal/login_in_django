@@ -2,16 +2,25 @@
 {
 
   float:center;
-  /*margin-right:20px;*/
+  margin-right:20px;
 
 }
 
 .signup-btn
 {
   float:center;
-  /*margin-right:20px;*/
+  margin-right:20px;
 }
 
+.Logout-button
+{
+  text-align: center;
+}
+
+.Logout-btn:hover
+{
+  background-color: white;
+}
 
 .form-control-inline
 {
@@ -24,4 +33,13 @@
 #myModal .modal-dialog
 {
   width: 500px;
+}
+
+h1
+{
+    color: #ffffff;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #ffffff;
+    text-underline-position: under left;
 }

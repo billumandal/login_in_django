@@ -8,7 +8,7 @@ from .forms import SignupForm
 
 
 class HomePageView(TemplateView):
-    template_name = "signup/product.html"
+    template_name = "signup/dashboard.html"
 
 class Register_user(FormView):
 
@@ -24,12 +24,12 @@ class Register_user(FormView):
             user.set_password(user.password)
             user.save()
 
-            # subject = "Just to test if that e-mail thing works in django"
-            # message = "Just a fucking text message. \n Ignore it."
-            # from_email = setting.EMAIL_HOST_USER
-            # to_list = [user.email, 'billu.mandal@gmail.com']
-            # send_mail(subject, message, from_email, to_list, fail_silently=False)
-            # message.success(request, 'Thank you for registering, we\'ll be in touch.')
+            subject = "Just to test if that e-mail thing works in django"
+            message = "Just a fucking text message. \n Ignore it."
+            from_email = setting.EMAIL_HOST_USER
+            to_list = [user.email, 'billu.mandal@gmail.com']
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
+            message.success(request, 'Thank you for registering, we\'ll be in touch.')
 
             return HttpResponse(status=200)
         else:
