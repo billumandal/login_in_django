@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+# class Profileofuser(models.Model):
+#     user = models.OneToOneField(user, related_name='profileofuser')
+#     activation_key = models.CharField(max_length=40)
+#     key_expires = models.DateTimeField()
+

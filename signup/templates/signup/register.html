@@ -17,11 +17,14 @@
                  $("#register").click(function()
                      {
                          // Checking for blank fields.
-                         if( $("#username").val() == '' || $("#password").val()==''){
+                         // How to check if e-mail is e-mail
+                         if( $("#username").val() == '' || $("#password").val()=='' || $("#email").val()==''){
                              $('input[type="text"],input[type="password"]').css("border","2px solid red");
                              $("#error").html("Please fill all the fields!");
                              } else if($("#password").val().length < 5){
                                  $("#error1").html("Password length should be more than 4");
+                             } else if ( /*check if email is email */){
+                                $("#error3").html("Please enter a correct email.");
                              } else if( $("#confirm_password").val()!=$("#password").val()){
                                  $("#error2").html("Passwords don't match. Try again!")
                              } else {
@@ -46,11 +49,11 @@
          <style>
           body
           {
-              background-image: url({% static "one.jpg" %});
+              background-image: url({% static "shot1.jpg" %});
               -moz-background-size: cover;
               -webkit-background-size: cover;
               background-size: cover;
-             background-position: top center !important;
+              background-position: top center !important;
               background-repeat: no-repeat !important;
               background-attachment: fixed;
          }
@@ -60,7 +63,7 @@
     <body>
 
         <div class="container">
-            <h2>Small Modal</h2>
+            <h2>Why isn't e-mail address showing?</h2>
             <!-- Trigger the modal with a button -->
             <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Registration</button>
 
@@ -83,14 +86,26 @@
                                         <table cellspacing = "5" cellpadding = "5">
 
                                             <tr>
-
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
-
                                             </tr>
+
                                             <tr>
                                                 <td>Username:</td>
                                                 <td><input type="text" autofocus="autofocus" id="username" name="username" value="" class="form-control" placeholder="Enter username"></td>
+                                                <td style="color:red;"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Email Address:</td>
+                                                <td><input type="text" autofocus="autofocus" id="email" name="email" value="" class="form-control" placeholder="Enter your email address"></td>
                                                 <td style="color:red;"></td>
                                             </tr>
 
@@ -106,7 +121,7 @@
                                             <tr>
                                                 <td>Password:</td>
                                                 <td><input type="password" id="password" name="password" value="" class="form-control" placeholder="Enter Password"></td>
-                                <td style="color:red;"></td>
+                                                <td style="color:red;"></td>
                                             </tr>
 
                                             <tr>
@@ -142,7 +157,8 @@
                                         <br><br>
                                         <p id="error" style="color:red;"></p>
                                         <p id="error1" style="color:red;"></p>
-                                         <p id="error2" style="color:red;"></p>
+                                        <p id="error2" style="color:red;"></p>
+                                        <p id="error3" style="color:red;"></p>
                                     </form>
                                 </div>
                             </center>
